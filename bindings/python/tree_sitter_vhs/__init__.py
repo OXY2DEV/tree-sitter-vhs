@@ -1,4 +1,4 @@
-"""Tree-sitter grammer for the CLI video recorder(.tape files)"""
+"""Tree-sitter grammar for the CLI video recorder(.tape files)"""
 
 from importlib.resources import files as _files
 

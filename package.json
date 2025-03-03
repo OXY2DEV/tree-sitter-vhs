@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-vhs",
   "version": "0.1.0",
-  "description": "Tree-sitter grammer for the CLI video recorder(.tape files)",
+  "description": "Tree-sitter grammar for the CLI video recorder(.tape files)",
   "repository": "https://github.com/oxy2dev/tree-sitter-vhs.git",
   "license": "MIT",
   "author": {

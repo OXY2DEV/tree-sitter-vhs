@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tree-sitter-vhs"
-description = "Tree-sitter grammer for the CLI video recorder(.tape files)"
+description = "Tree-sitter grammar for the CLI video recorder(.tape files)"
 version = "0.1.0"
 keywords = ["incremental", "parsing", "tree-sitter", "vhs"]
 classifiers = [

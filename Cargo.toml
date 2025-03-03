@@ -1,6 +1,6 @@
 [package]
 name = "tree-sitter-vhs"
-description = "Tree-sitter grammer for the CLI video recorder(.tape files)"
+description = "Tree-sitter grammar for the CLI video recorder(.tape files)"
 version = "0.1.0"
 authors = ["MD. Mouinul Hossain <mdmouinulhossainshawon@gmail.com>"]
 license = "MIT"

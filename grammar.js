@@ -1,5 +1,5 @@
 /**
- * @file Tree-sitter grammer for the CLI video recorder(.tape files)
+ * @file Tree-sitter grammar for the CLI video recorder(.tape files)
  * @author MD. Mouinul Hossain <mdmouinulhossainshawon@gmail.com>
  * @license MIT
  */

@@ -17,7 +17,7 @@
   "metadata": {
     "version": "0.1.0",
     "license": "MIT",
-    "description": "Tree-sitter grammer for the CLI video recorder(.tape files)",
+    "description": "Tree-sitter grammar for the CLI video recorder(.tape files)",
     "authors": [
       {
         "name": "MD. Mouinul Hossain",
