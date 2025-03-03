@@ -1,0 +1,233 @@
+==============================================================================
+Comments
+==============================================================================
+# Comment
+------------------------------------------------------------------------------
+
+(tape
+  (comment))
+
+==============================================================================
+Output
+==============================================================================
+Output out.gif
+Output out.mp4
+Output out.webm
+Output frames/
+------------------------------------------------------------------------------
+
+(tape
+  (output
+    (destination))
+  (output
+    (destination))
+  (output
+    (destination))
+  (output
+    (destination)))
+
+==============================================================================
+Require
+==============================================================================
+Require gum
+Require glow
+------------------------------------------------------------------------------
+
+(tape
+  (require
+    (dependency))
+  (require
+    (dependency)))
+
+==============================================================================
+Settings(with various data types)
+==============================================================================
+Set Shell fish
+Set FontSize 40
+Set FontFamily "Monoflow"
+Set LineHeight 1.8
+Set TypingSpeed 500ms
+Set TypingSpeed 1s
+Set Theme { "name": "Whimsy", "black": "#535178", "red": "#ef6487", "green": "#5eca89", "yellow": "#fdd877", "blue": "#65aef7", "magenta": "#aa7ff0", "cyan": "#43c1be", "white": "#ffffff", "brightBlack": "#535178", "brightRed": "#ef6487", "brightGreen": "#5eca89", "brightYellow": "#fdd877", "brightBlue": "#65aef7", "brightMagenta": "#aa7ff0", "brightCyan": "#43c1be", "brightWhite": "#ffffff", "background": "#29283b", "foreground": "#b3b0d6", "selection": "#3d3c58", "cursor": "#b3b0d6" }
+Set WindowBar Colorful
+Set LoopOffset 50%
+Set CursorBlink false
+------------------------------------------------------------------------------
+(tape
+  (settings
+    (settings_name)
+    (settings_value
+      (literal)))
+  (settings
+	(settings_name)
+	(settings_value
+      (number)))
+  (settings
+    (settings_name)
+    (settings_value
+      (string)))
+  (settings
+    (settings_name)
+    (settings_value
+      (number)))
+  (settings
+    (settings_name)
+    (settings_value
+      (duration)))
+  (settings
+    (settings_name)
+    (settings_value
+      (duration)))
+  (settings
+    (settings_name)
+    (settings_value
+      (json)))
+  (settings
+    (settings_name)
+    (settings_value
+      (literal)))
+  (settings
+    (settings_name)
+    (settings_value
+      (percentage)))
+  (settings
+    (settings_name)
+    (settings_value
+      (boolean))))
+
+==============================================================================
+Typing
+==============================================================================
+Type "Whatever you want"
+Type@500ms "Slow down there, partner."
+------------------------------------------------------------------------------
+
+(tape
+  (type
+    (string))
+  (type
+    (duration)
+    (string)))
+
+==============================================================================
+Keys
+==============================================================================
+Backspace 18
+Ctrl+H
+Tab@500ms 2
+------------------------------------------------------------------------------
+
+(tape
+  (key_command
+    (key)
+    (number))
+  (key_command
+    (key))
+  (key_command
+    (key)
+    (duration)
+    (number)))
+
+==============================================================================
+Wait
+==============================================================================
+Wait
+Wait            /World/
+Wait+Screen     /World/
+Wait+Line       /World/
+Wait@10ms       /World/
+Wait+Line@10ms  /World/
+------------------------------------------------------------------------------
+
+(tape
+  (wait)
+  (wait
+    (pattern))
+  (wait
+    (scope)
+    (pattern))
+  (wait
+    (scope)
+    (pattern))
+  (wait
+    (duration)
+    (pattern))
+  (wait
+    (scope)
+    (duration)
+    (pattern)))
+
+==============================================================================
+Sleep
+==============================================================================
+Sleep 0.5
+Sleep 2
+Sleep 100ms
+Sleep 1s
+------------------------------------------------------------------------------
+
+(tape
+  (sleep
+    (number))
+  (sleep
+    (number))
+  (sleep
+    (duration))
+  (sleep
+    (duration)))
+
+==============================================================================
+Show/Hide
+==============================================================================
+Show
+Hide
+------------------------------------------------------------------------------
+
+(tape
+  (show)
+  (hide))
+
+==============================================================================
+Screenshot
+==============================================================================
+Screenshot examples/screenshot.png
+------------------------------------------------------------------------------
+
+(tape
+  (screenshot
+    (destination)))
+
+==============================================================================
+Copy/Paste
+==============================================================================
+Copy "https://github.com/charmbracelet"
+Paste
+------------------------------------------------------------------------------
+
+(tape
+  (copy
+    (string))
+  (paste))
+
+==============================================================================
+Environment variables
+==============================================================================
+Env HELLO "WORLD"
+------------------------------------------------------------------------------
+
+(tape
+  (environment
+    (variable)
+    (value
+      (string))))
+
+==============================================================================
+Source
+==============================================================================
+Source config.tape
+------------------------------------------------------------------------------
+
+(tape
+  (source
+    (destination)))
+
