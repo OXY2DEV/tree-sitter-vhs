@@ -62,8 +62,8 @@ module.exports = grammar({
 
     // TODO, Find better path detection pattern(s).
     destination: _ => choice(
-      /[\w.-~]+\.\w+/,
-      /[\w.-~]+[/\\]/
+      /[\w.-]+\.\w+/,
+      /[\w.-]+[/\\]/
     ),
 
     ////////////////////////////////////////////////////////////////////////
@@ -111,7 +111,10 @@ module.exports = grammar({
       alias($.string_settings_value, $.settings_value)
     ),
 
-    string_settings_name: _ => "FontFamily",
+    string_settings_name: _ => choice(
+      "FontFamily",
+      "MarginFill",
+    ),
     string_settings_value: $ => $.string,
 
     ////////////////////////////////////////////////////////////////////////
@@ -211,11 +214,14 @@ module.exports = grammar({
       alias($.windowbar_settings_value, $.settings_value)
     ),
 
-    windowbar_settings_value: _ => choice(
-      "Colorful",
-      "ColorfulRight",
-      "Rings",
-      "RingsRight"
+    windowbar_settings_value: $ => alias(
+      choice(
+        "Colorful",
+        "ColorfulRight",
+        "Rings",
+        "RingsRight"
+      ),
+      $.literal
     ),
 
     ////////////////////////////////////////////////////////////////////////
@@ -289,8 +295,8 @@ module.exports = grammar({
     // CTRL-ALT-a
     key: _ => choice(
       "Backspace",
-      /CTRL\+./,
-      /ALT\+./,
+      /Ctrl\+./,
+      /Alt\+./,
       "Enter",
       "Up",
       "Down",
@@ -373,7 +379,7 @@ module.exports = grammar({
     screenshot: $ => seq(
       "Screenshot",
       / +/,
-      alias(/[\w.-~/\\]+\.png/, $.destination)
+      alias(/[\w.-/\\]+\.png/, $.destination)
     ),
 
     ////////////////////////////////////////////////////////////////////////
@@ -418,7 +424,7 @@ module.exports = grammar({
     source: $ => seq(
       "Source",
       / +/,
-      alias(/[\w.-~/\\]+\.tape/, $.destination)
+      alias(/[\w.-/\\]+\.tape/, $.destination)
     ),
 
     ////////////////////////////////////////////////////////////////////////

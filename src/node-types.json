@@ -166,7 +166,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "boolean",
@@ -408,14 +408,6 @@
     "named": false
   },
   {
-    "type": "Colorful",
-    "named": false
-  },
-  {
-    "type": "ColorfulRight",
-    "named": false
-  },
-  {
     "type": "Copy",
     "named": false
   },
@@ -429,6 +421,10 @@
   },
   {
     "type": "Env",
+    "named": false
+  },
+  {
+    "type": "FontFamily",
     "named": false
   },
   {
@@ -464,6 +460,10 @@
     "named": false
   },
   {
+    "type": "MarginFill",
+    "named": false
+  },
+  {
     "type": "Output",
     "named": false
   },
@@ -489,14 +489,6 @@
   },
   {
     "type": "Right",
-    "named": false
-  },
-  {
-    "type": "Rings",
-    "named": false
-  },
-  {
-    "type": "RingsRight",
     "named": false
   },
   {

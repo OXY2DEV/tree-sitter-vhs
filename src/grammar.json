@@ -156,11 +156,11 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "[\\w.-~]+\\.\\w+"
+          "value": "[\\w.-]+\\.\\w+"
         },
         {
           "type": "PATTERN",
-          "value": "[\\w.-~]+[/\\\\]"
+          "value": "[\\w.-]+[/\\\\]"
         }
       ]
     },
@@ -265,8 +265,17 @@
       ]
     },
     "string_settings_name": {
-      "type": "STRING",
-      "value": "FontFamily"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "FontFamily"
+        },
+        {
+          "type": "STRING",
+          "value": "MarginFill"
+        }
+      ]
     },
     "string_settings_value": {
       "type": "SYMBOL",
@@ -526,25 +535,30 @@
       ]
     },
     "windowbar_settings_value": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "Colorful"
-        },
-        {
-          "type": "STRING",
-          "value": "ColorfulRight"
-        },
-        {
-          "type": "STRING",
-          "value": "Rings"
-        },
-        {
-          "type": "STRING",
-          "value": "RingsRight"
-        }
-      ]
+      "type": "ALIAS",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "Colorful"
+          },
+          {
+            "type": "STRING",
+            "value": "ColorfulRight"
+          },
+          {
+            "type": "STRING",
+            "value": "Rings"
+          },
+          {
+            "type": "STRING",
+            "value": "RingsRight"
+          }
+        ]
+      },
+      "named": true,
+      "value": "literal"
     },
     "loopoffset_settings": {
       "type": "SEQ",
@@ -701,11 +715,11 @@
         },
         {
           "type": "PATTERN",
-          "value": "CTRL\\+."
+          "value": "Ctrl\\+."
         },
         {
           "type": "PATTERN",
-          "value": "ALT\\+."
+          "value": "Alt\\+."
         },
         {
           "type": "STRING",
@@ -896,7 +910,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "[\\w.-~/\\\\]+\\.png"
+            "value": "[\\w.-/\\\\]+\\.png"
           },
           "named": true,
           "value": "destination"
@@ -991,7 +1005,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "[\\w.-~/\\\\]+\\.tape"
+            "value": "[\\w.-/\\\\]+\\.tape"
           },
           "named": true,
           "value": "destination"
