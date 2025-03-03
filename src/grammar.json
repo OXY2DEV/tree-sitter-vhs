@@ -152,17 +152,8 @@
       ]
     },
     "destination": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[\\w.-]+\\.\\w+"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[\\w.-]+[/\\\\]"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[\\w\\/\\\\\\.-]+\\.\\w+"
     },
     "require": {
       "type": "SEQ",
@@ -1118,11 +1109,7 @@
   "extras": [
     {
       "type": "PATTERN",
-      "value": "\\n"
-    },
-    {
-      "type": "PATTERN",
-      "value": "\\r?\\n"
+      "value": "\\s+"
     },
     {
       "type": "SYMBOL",

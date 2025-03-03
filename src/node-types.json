@@ -25,11 +25,6 @@
     }
   },
   {
-    "type": "destination",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "environment",
     "named": true,
     "fields": {},
@@ -541,6 +536,10 @@
   },
   {
     "type": "dependency",
+    "named": true
+  },
+  {
+    "type": "destination",
     "named": true
   },
   {

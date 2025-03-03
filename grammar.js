@@ -10,8 +10,7 @@
 module.exports = grammar({
   name: "vhs",
   extras: $ => [
-    /\n/,
-    /\r?\n/,
+    /\s+/,
     $.comment,
   ],
 
@@ -61,10 +60,7 @@ module.exports = grammar({
     ),
 
     // TODO, Find better path detection pattern(s).
-    destination: _ => choice(
-      /[\w.-]+\.\w+/,
-      /[\w.-]+[/\\]/
-    ),
+    destination: _ => /[\w\/\\\.-]+\.\w+/,
 
     ////////////////////////////////////////////////////////////////////////
     /*
