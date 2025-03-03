@@ -10,6 +10,15 @@
   "Set" @keyword
   (settings_name) @property)
 
+(type
+  "Type" @keyword)
+
+(type
+  [
+   "@"
+   (duration)
+   ] @attribute)
+
 (key_command
   (key) @operator)
 
