@@ -1,0 +1,594 @@
+[
+  {
+    "type": "boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "copy",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "destination",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "environment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "value",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "escaped_string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "key",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "key_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "key",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "output",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "destination",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pattern",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "require",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dependency",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "scope",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "screenshot",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "destination",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "settings",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "settings_name",
+          "named": true
+        },
+        {
+          "type": "settings_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "settings_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "settings_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "json",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "percentage",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sleep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "destination",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tape",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "copy",
+          "named": true
+        },
+        {
+          "type": "environment",
+          "named": true
+        },
+        {
+          "type": "hide",
+          "named": true
+        },
+        {
+          "type": "key_command",
+          "named": true
+        },
+        {
+          "type": "output",
+          "named": true
+        },
+        {
+          "type": "paste",
+          "named": true
+        },
+        {
+          "type": "require",
+          "named": true
+        },
+        {
+          "type": "screenshot",
+          "named": true
+        },
+        {
+          "type": "settings",
+          "named": true
+        },
+        {
+          "type": "show",
+          "named": true
+        },
+        {
+          "type": "sleep",
+          "named": true
+        },
+        {
+          "type": "source",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        },
+        {
+          "type": "wait",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "escaped_string",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "wait",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "duration",
+          "named": true
+        },
+        {
+          "type": "pattern",
+          "named": true
+        },
+        {
+          "type": "scope",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "Backspace",
+    "named": false
+  },
+  {
+    "type": "BorderRadius",
+    "named": false
+  },
+  {
+    "type": "Colorful",
+    "named": false
+  },
+  {
+    "type": "ColorfulRight",
+    "named": false
+  },
+  {
+    "type": "Copy",
+    "named": false
+  },
+  {
+    "type": "Down",
+    "named": false
+  },
+  {
+    "type": "Enter",
+    "named": false
+  },
+  {
+    "type": "Env",
+    "named": false
+  },
+  {
+    "type": "FontSize",
+    "named": false
+  },
+  {
+    "type": "FrameRate",
+    "named": false
+  },
+  {
+    "type": "Height",
+    "named": false
+  },
+  {
+    "type": "Left",
+    "named": false
+  },
+  {
+    "type": "LetterSpacing",
+    "named": false
+  },
+  {
+    "type": "Line",
+    "named": false
+  },
+  {
+    "type": "LineHeight",
+    "named": false
+  },
+  {
+    "type": "Margin",
+    "named": false
+  },
+  {
+    "type": "Output",
+    "named": false
+  },
+  {
+    "type": "Padding",
+    "named": false
+  },
+  {
+    "type": "PageDown",
+    "named": false
+  },
+  {
+    "type": "PageUp",
+    "named": false
+  },
+  {
+    "type": "PlaybackSpeed",
+    "named": false
+  },
+  {
+    "type": "Require",
+    "named": false
+  },
+  {
+    "type": "Right",
+    "named": false
+  },
+  {
+    "type": "Rings",
+    "named": false
+  },
+  {
+    "type": "RingsRight",
+    "named": false
+  },
+  {
+    "type": "Screen",
+    "named": false
+  },
+  {
+    "type": "Screenshot",
+    "named": false
+  },
+  {
+    "type": "Set",
+    "named": false
+  },
+  {
+    "type": "Sleep",
+    "named": false
+  },
+  {
+    "type": "Source",
+    "named": false
+  },
+  {
+    "type": "Space",
+    "named": false
+  },
+  {
+    "type": "Tab",
+    "named": false
+  },
+  {
+    "type": "Type",
+    "named": false
+  },
+  {
+    "type": "Up",
+    "named": false
+  },
+  {
+    "type": "Wait",
+    "named": false
+  },
+  {
+    "type": "Width",
+    "named": false
+  },
+  {
+    "type": "`",
+    "named": false
+  },
+  {
+    "type": "dependency",
+    "named": true
+  },
+  {
+    "type": "duration",
+    "named": true
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "hide",
+    "named": true
+  },
+  {
+    "type": "json",
+    "named": true
+  },
+  {
+    "type": "literal",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "paste",
+    "named": true
+  },
+  {
+    "type": "percentage",
+    "named": true
+  },
+  {
+    "type": "show",
+    "named": true
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "variable",
+    "named": true
+  }
+]

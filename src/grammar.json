@@ -1,0 +1,1115 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "vhs",
+  "rules": {
+    "tape": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "require"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "output"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "literal_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "string_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "duration_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "numeric_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "theme_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "windowbar_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "loopoffset_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "type"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "key_command"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "wait"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "sleep"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "show"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "hide"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "screenshot"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "copy"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "paste"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "environment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "source"
+          }
+        ]
+      }
+    },
+    "output": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Output"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "destination"
+        }
+      ]
+    },
+    "destination": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[\\w.-]+\\.\\w+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[\\w.-]+[/\\\\]"
+        }
+      ]
+    },
+    "require": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Require"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[a-zA-Z0-9_-]+"
+          },
+          "named": true,
+          "value": "dependency"
+        }
+      ]
+    },
+    "literal_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "literal_settings_name"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "literal_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "literal_settings_name": {
+      "type": "STRING",
+      "value": "Shell"
+    },
+    "literal_settings_value": {
+      "type": "SYMBOL",
+      "name": "literal"
+    },
+    "string_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_settings_name"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "string_settings_name": {
+      "type": "STRING",
+      "value": "FontFamily"
+    },
+    "string_settings_value": {
+      "type": "SYMBOL",
+      "name": "string"
+    },
+    "duration_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "duration_settings_name"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "duration_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "duration_settings_name": {
+      "type": "STRING",
+      "value": "TypingSpeed"
+    },
+    "duration_settings_value": {
+      "type": "SYMBOL",
+      "name": "duration"
+    },
+    "numeric_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric_settings_name"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "numeric_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "numeric_settings_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "FontSize"
+        },
+        {
+          "type": "STRING",
+          "value": "Width"
+        },
+        {
+          "type": "STRING",
+          "value": "Height"
+        },
+        {
+          "type": "STRING",
+          "value": "LetterSpacing"
+        },
+        {
+          "type": "STRING",
+          "value": "LineHeight"
+        },
+        {
+          "type": "STRING",
+          "value": "Padding"
+        },
+        {
+          "type": "STRING",
+          "value": "Margin"
+        },
+        {
+          "type": "STRING",
+          "value": "BorderRadius"
+        },
+        {
+          "type": "STRING",
+          "value": "FrameRate"
+        },
+        {
+          "type": "STRING",
+          "value": "PlaybackSpeed"
+        }
+      ]
+    },
+    "numeric_settings_value": {
+      "type": "SYMBOL",
+      "name": "number"
+    },
+    "boolean_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "boolean_settings_name"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "boolean_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "boolean_settings_name": {
+      "type": "STRING",
+      "value": "CursorBlink"
+    },
+    "boolean_settings_value": {
+      "type": "SYMBOL",
+      "name": "boolean"
+    },
+    "theme_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "Theme"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "theme_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "theme_settings_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "json"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "windowbar_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "WindowBar"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "windowbar_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "windowbar_settings_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Colorful"
+        },
+        {
+          "type": "STRING",
+          "value": "ColorfulRight"
+        },
+        {
+          "type": "STRING",
+          "value": "Rings"
+        },
+        {
+          "type": "STRING",
+          "value": "RingsRight"
+        }
+      ]
+    },
+    "loopoffset_settings": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Set"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "LoopOffset"
+          },
+          "named": true,
+          "value": "settings_name"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "loopoffset_settings_value"
+          },
+          "named": true,
+          "value": "settings_value"
+        }
+      ]
+    },
+    "loopoffset_settings_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "percentage"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Type"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "@"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "duration"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "string"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "escaped_string"
+            }
+          ]
+        }
+      ]
+    },
+    "key_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "key"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "@"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "duration"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": " +"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "number"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "key": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Backspace"
+        },
+        {
+          "type": "PATTERN",
+          "value": "CTRL\\+."
+        },
+        {
+          "type": "PATTERN",
+          "value": "ALT\\+."
+        },
+        {
+          "type": "STRING",
+          "value": "Enter"
+        },
+        {
+          "type": "STRING",
+          "value": "Up"
+        },
+        {
+          "type": "STRING",
+          "value": "Down"
+        },
+        {
+          "type": "STRING",
+          "value": "Left"
+        },
+        {
+          "type": "STRING",
+          "value": "Right"
+        },
+        {
+          "type": "STRING",
+          "value": "Tab"
+        },
+        {
+          "type": "STRING",
+          "value": "Space"
+        },
+        {
+          "type": "STRING",
+          "value": "PageUp"
+        },
+        {
+          "type": "STRING",
+          "value": "PageDown"
+        }
+      ]
+    },
+    "wait": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Wait"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "scope"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "@"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "duration"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": " +"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "pattern"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "scope": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "Screen"
+            },
+            {
+              "type": "STRING",
+              "value": "Line"
+            }
+          ]
+        }
+      ]
+    },
+    "pattern": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^/]*"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        }
+      ]
+    },
+    "sleep": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Sleep"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "duration"
+            }
+          ]
+        }
+      ]
+    },
+    "show": {
+      "type": "STRING",
+      "value": "Show"
+    },
+    "hide": {
+      "type": "STRING",
+      "value": "Hide"
+    },
+    "screenshot": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Screenshot"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[\\w.-/\\\\]+\\.png"
+          },
+          "named": true,
+          "value": "destination"
+        }
+      ]
+    },
+    "copy": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Copy"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "paste": {
+      "type": "STRING",
+      "value": "Paste"
+    },
+    "environment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Env"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "literal"
+          },
+          "named": true,
+          "value": "variable"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "env_value"
+          },
+          "named": true,
+          "value": "value"
+        }
+      ]
+    },
+    "env_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "boolean"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "source": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Source"
+        },
+        {
+          "type": "PATTERN",
+          "value": " +"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[\\w.-/\\\\]+\\.tape"
+          },
+          "named": true,
+          "value": "destination"
+        }
+      ]
+    },
+    "string": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\""
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^\"]*"
+            },
+            {
+              "type": "STRING",
+              "value": "\""
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "'"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^']*"
+            },
+            {
+              "type": "STRING",
+              "value": "'"
+            }
+          ]
+        }
+      ]
+    },
+    "escaped_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "`"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^`]+"
+        },
+        {
+          "type": "STRING",
+          "value": "`"
+        }
+      ]
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "[0-9\\.]+"
+    },
+    "boolean": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        }
+      ]
+    },
+    "percentage": {
+      "type": "PATTERN",
+      "value": "[0-9\\.]+%"
+    },
+    "json": {
+      "type": "PATTERN",
+      "value": "\\{[^\\}]+\\}"
+    },
+    "literal": {
+      "type": "PATTERN",
+      "value": "[^\\s#]+"
+    },
+    "duration": {
+      "type": "PATTERN",
+      "value": "[0-9\\.]+m?s"
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\n"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\r?\\n"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}
