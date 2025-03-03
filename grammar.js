@@ -18,13 +18,14 @@ module.exports = grammar({
   rules: {
     tape: $ => repeat(
       choice(
-        $.require,
         $.output,
+        $.require,
 
         alias($.literal_settings, $.settings),
         alias($.string_settings, $.settings),
         alias($.duration_settings, $.settings),
         alias($.numeric_settings, $.settings),
+        alias($.boolean_settings, $.settings),
         alias($.theme_settings, $.settings),
         alias($.windowbar_settings, $.settings),
         alias($.loopoffset_settings, $.settings),
@@ -61,8 +62,8 @@ module.exports = grammar({
 
     // TODO, Find better path detection pattern(s).
     destination: _ => choice(
-      /[\w.-]+\.\w+/,
-      /[\w.-]+[/\\]/
+      /[\w.-~]+\.\w+/,
+      /[\w.-~]+[/\\]/
     ),
 
     ////////////////////////////////////////////////////////////////////////
@@ -372,7 +373,7 @@ module.exports = grammar({
     screenshot: $ => seq(
       "Screenshot",
       / +/,
-      alias(/[\w.-/\\]+\.png/, $.destination)
+      alias(/[\w.-~/\\]+\.png/, $.destination)
     ),
 
     ////////////////////////////////////////////////////////////////////////
@@ -417,7 +418,7 @@ module.exports = grammar({
     source: $ => seq(
       "Source",
       / +/,
-      alias(/[\w.-/\\]+\.tape/, $.destination)
+      alias(/[\w.-~/\\]+\.tape/, $.destination)
     ),
 
     ////////////////////////////////////////////////////////////////////////

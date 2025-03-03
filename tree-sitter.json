@@ -10,7 +10,8 @@
         "tape"
       ],
       "injection-regex": "^vhs$",
-      "class-name": "TreeSitterVhs"
+      "class-name": "TreeSitterVhs",
+      "highlights": "./queries/highlights.scm"
     }
   ],
   "metadata": {

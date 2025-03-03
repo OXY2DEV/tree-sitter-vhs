@@ -169,6 +169,10 @@
       "required": false,
       "types": [
         {
+          "type": "boolean",
+          "named": true
+        },
+        {
           "type": "duration",
           "named": true
         },

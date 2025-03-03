@@ -9,11 +9,11 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "require"
+            "name": "output"
           },
           {
             "type": "SYMBOL",
-            "name": "output"
+            "name": "require"
           },
           {
             "type": "ALIAS",
@@ -47,6 +47,15 @@
             "content": {
               "type": "SYMBOL",
               "name": "numeric_settings"
+            },
+            "named": true,
+            "value": "settings"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "boolean_settings"
             },
             "named": true,
             "value": "settings"
@@ -147,11 +156,11 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "[\\w.-]+\\.\\w+"
+          "value": "[\\w.-~]+\\.\\w+"
         },
         {
           "type": "PATTERN",
-          "value": "[\\w.-]+[/\\\\]"
+          "value": "[\\w.-~]+[/\\\\]"
         }
       ]
     },
@@ -887,7 +896,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "[\\w.-/\\\\]+\\.png"
+            "value": "[\\w.-~/\\\\]+\\.png"
           },
           "named": true,
           "value": "destination"
@@ -982,7 +991,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "[\\w.-/\\\\]+\\.tape"
+            "value": "[\\w.-~/\\\\]+\\.tape"
           },
           "named": true,
           "value": "destination"
