@@ -1,6 +1,6 @@
 # tree-sitter-vhs
 
-[![CI][ci]](https://github.com/tree-sitter/tree-sitter-vhs/actions/workflows/ci.yml)
+[![CI][ci]](https://github.com/OXY2DEV/tree-sitter-vhs/actions/workflows/ci.yml)
 [![discord][discord]](https://discord.gg/w7nTvsVJhm)
 [![matrix][matrix]](https://matrix.to/#/#tree-sitter-chat:matrix.org)
 
