@@ -10,7 +10,7 @@
 module.exports = grammar({
   name: "vhs",
   extras: $ => [
-    /\s+/,
+    /\s/,
     $.comment,
   ],
 
@@ -54,13 +54,11 @@ module.exports = grammar({
     */
 
     output: $ => seq(
-      "Output",
-      / +/,
+      'Output',
       $.destination
     ),
 
-    // TODO, Find better path detection pattern(s).
-    destination: _ => /[\w\/\\\.-]+\.\w+/,
+    destination: $ => /[^\s#~]+/,
 
     ////////////////////////////////////////////////////////////////////////
     /*
@@ -71,7 +69,6 @@ module.exports = grammar({
 
     require: $ => seq(
       "Require",
-      / +/,
       alias(/[a-zA-Z0-9_-]+/, $.dependency)
     ),
 
@@ -84,9 +81,7 @@ module.exports = grammar({
 
     literal_settings: $ => seq(
       "Set",
-      / +/,
       alias($.literal_settings_name, $.settings_name),
-      / +/,
       alias($.literal_settings_value, $.settings_value)
     ),
 
@@ -101,9 +96,7 @@ module.exports = grammar({
 
     string_settings: $ => seq(
       "Set",
-      / +/,
       alias($.string_settings_name, $.settings_name),
-      / +/,
       alias($.string_settings_value, $.settings_value)
     ),
 
@@ -121,9 +114,7 @@ module.exports = grammar({
 
     duration_settings: $ => seq(
       "Set",
-      / +/,
       alias($.duration_settings_name, $.settings_name),
-      / +/,
       alias($.duration_settings_value, $.settings_value)
     ),
 
@@ -138,9 +129,7 @@ module.exports = grammar({
 
     numeric_settings: $ => seq(
       "Set",
-      / +/,
       alias($.numeric_settings_name, $.settings_name),
-      / +/,
       alias($.numeric_settings_value, $.settings_value)
     ),
 
@@ -167,9 +156,7 @@ module.exports = grammar({
 
     boolean_settings: $ => seq(
       "Set",
-      / +/,
       alias($.boolean_settings_name, $.settings_name),
-      / +/,
       alias($.boolean_settings_value, $.settings_value)
     ),
 
@@ -185,9 +172,7 @@ module.exports = grammar({
 
     theme_settings: $ => seq(
       "Set",
-      / +/,
       alias("Theme", $.settings_name),
-      / +/,
       alias($.theme_settings_value, $.settings_value)
     ),
 
@@ -204,9 +189,7 @@ module.exports = grammar({
 
     windowbar_settings: $ => seq(
       "Set",
-      / +/,
       alias("WindowBar", $.settings_name),
-      / +/,
       alias($.windowbar_settings_value, $.settings_value)
     ),
 
@@ -228,9 +211,7 @@ module.exports = grammar({
 
     loopoffset_settings: $ => seq(
       "Set",
-      / +/,
       alias("LoopOffset", $.settings_name),
-      / +/,
       alias($.loopoffset_settings_value, $.settings_value)
     ),
 
@@ -252,11 +233,10 @@ module.exports = grammar({
       "Type",
       optional(
         seq(
-          "@",
+          token.immediate("@"),
           $.duration
         )
       ),
-      / +/,
       choice(
         $.string,
         $.escaped_string,
@@ -275,13 +255,12 @@ module.exports = grammar({
       $.key,
       optional(
         seq(
-          "@",
+          token.immediate("@"),
           $.duration
         )
       ),
       optional(
         seq(
-          / +/,
           $.number
         )
       ),
@@ -315,13 +294,12 @@ module.exports = grammar({
       optional($.scope),
       optional(
         seq(
-          "@",
+          token.immediate("@"),
           $.duration
         )
       ),
       optional(
         seq(
-          / +/,
           $.pattern
         )
       )
@@ -350,7 +328,6 @@ module.exports = grammar({
 
     sleep: $ => seq(
       "Sleep",
-      / +/,
       choice(
         $.number,
         $.duration
@@ -374,7 +351,6 @@ module.exports = grammar({
 
     screenshot: $ => seq(
       "Screenshot",
-      / +/,
       alias(/[\w.-/\\]+\.png/, $.destination)
     ),
 
@@ -386,7 +362,6 @@ module.exports = grammar({
 
     copy: $ => seq(
       "Copy",
-      / +/,
       $.string
     ),
     paste: _ => "Paste",
@@ -399,9 +374,7 @@ module.exports = grammar({
 
     environment: $ => seq(
       "Env",
-      / +/,
       alias($.literal, $.variable),
-      / +/,
       alias($.env_value, $.value),
     ),
 
@@ -419,7 +392,6 @@ module.exports = grammar({
 
     source: $ => seq(
       "Source",
-      / +/,
       alias(/[\w.-/\\]+\.tape/, $.destination)
     ),
 
@@ -456,7 +428,7 @@ module.exports = grammar({
 
     comment: _ => seq(
       "#",
-      /.*/
+      /[^\r\n]*/
     )
   }
 });
