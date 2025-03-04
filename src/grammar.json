@@ -990,8 +990,38 @@
       "value": "[^\\s#]+"
     },
     "duration": {
-      "type": "PATTERN",
-      "value": "[0-9\\.]+m?s"
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[0-9\\.]+"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "ms"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "s"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "comment": {
       "type": "SEQ",

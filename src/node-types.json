@@ -25,6 +25,11 @@
     }
   },
   {
+    "type": "duration",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "environment",
     "named": true,
     "fields": {},
@@ -75,6 +80,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "number",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "output",
@@ -543,10 +553,6 @@
     "named": true
   },
   {
-    "type": "duration",
-    "named": true
-  },
-  {
     "type": "false",
     "named": false
   },
@@ -563,8 +569,8 @@
     "named": true
   },
   {
-    "type": "number",
-    "named": true
+    "type": "ms",
+    "named": false
   },
   {
     "type": "paste",
@@ -573,6 +579,10 @@
   {
     "type": "percentage",
     "named": true
+  },
+  {
+    "type": "s",
+    "named": false
   },
   {
     "type": "show",
