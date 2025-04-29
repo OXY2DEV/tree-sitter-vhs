@@ -3,7 +3,7 @@ $(error Windows is not supported)
 endif
 
 LANGUAGE_NAME := tree-sitter-vhs
-HOMEPAGE_URL := https://github.com/oxy2dev/tree-sitter-vhs.git
+HOMEPAGE_URL := https://github.com/oxy2dev/tree-sitter-vhs
 VERSION := 0.1.0
 
 # repository

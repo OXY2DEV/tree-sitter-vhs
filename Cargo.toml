@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "vhs"]
 categories = ["parser-implementations", "parsing", "text-editors"]
-repository = "https://github.com/oxy2dev/tree-sitter-vhs.git"
+repository = "https://github.com/oxy2dev/tree-sitter-vhs"
 edition = "2021"
 autoexamples = false
 

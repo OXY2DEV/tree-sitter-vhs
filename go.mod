@@ -1,4 +1,4 @@
-module github.com/oxy2dev/tree-sitter-vhs.git
+module github.com/oxy2dev/tree-sitter-vhs
 
 go 1.22
 
